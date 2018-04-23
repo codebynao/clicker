@@ -13,3 +13,16 @@ a {
   border: solid 1px black;
   background-color: #232323;
 }
+
+.upgrade {
+  height: 40px;
+  width: 150px;
+  border: solid 1px grey;
+  color: grey;
+  border-radius: none;
+}
+
+.upgrade:enabled {
+  border: solid 1px black;
+  color: black;
+}
