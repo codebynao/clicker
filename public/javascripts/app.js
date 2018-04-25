@@ -3,10 +3,10 @@ var upgrade;
 
 socket.on('Click', (data) => {
     $('.counter').text(data);
-    if(data >= 10){
+    if(data >= 15){
         $('#upgrade1').prop('disabled', false);
     }
-    if(data >= 30){
+    if(data >= 100){
         $('#upgrade2').prop('disabled', false);
     }
 }); 

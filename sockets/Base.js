@@ -4,7 +4,11 @@ module.exports = (io) => {
     var upgrade2 = 0;
 
     io.on('connection', (socket) => {
-        socket.emit('Click', counter);
+        setInterval(() => {
+            counter += 1*upgrade1 + 10*upgrade2;
+            socket.emit('Click', counter);
+        }, 1000);
+        
         socket.on('Click', () => {
             counter += 1;
             socket.emit('Click', counter);
@@ -12,15 +16,16 @@ module.exports = (io) => {
         socket.on('Upgrade', (upgrade) => {
             switch(upgrade){
                 case 1:
-                    counter -= 10;
+                    counter -= 15;
                     upgrade1 += 1;
                     break;
                 case 2:
-                    counter -= 30;
+                    counter -= 100;
                     upgrade2 += 1;
                     break;
             }
             socket.emit('Upgrade', counter);
+            
         });
     });
 };
