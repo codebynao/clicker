@@ -1,28 +1,58 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: #232323;
 }
 
 a {
   color: #00B7FF;
 }
-
-.clicker {
-  height: 50px;
-  width: 50px;
-  border: solid 1px black;
+header {
+  text-align: center;
   background-color: #232323;
+  color: #999999;
+}
+.main {
+  background-color: #999999;
+  padding: 5vh 0;
+}
+.clickersect, .upgrasect {
+  text-align: center;
+}
+.clickersect {
+  margin-bottom: 2vh;
+}
+.clicker {
+  margin: auto;
+  width: 250px;
+  height: 250px;
+  background: url('../images/assassins_creed_logo.png') no-repeat center;
+  background-size: contain;
+}
+.clicker:hover, .upgrades:hover {
+  cursor: pointer;
 }
 
-.upgrade {
-  height: 40px;
-  width: 150px;
-  border: solid 1px grey;
-  color: grey;
+.upgrades:hover {
+  background-color: #cccccc;
+}
+
+.upgrades {
+  height: auto;
+  width: 100%;
   border-radius: none;
-}
-
-.upgrade:enabled {
+  background: none;
   border: solid 1px black;
   color: black;
+  padding-bottom: 0;
+}
+
+.upgrades:disabled {
+  border: solid 1px grey;
+  color: grey;
+  cursor: not-allowed;
+}
+
+.upgrades:hover:disabled {
+  background-color: #777777;
 }

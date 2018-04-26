@@ -1,16 +1,31 @@
 extends layout
 
 block content
-  - var clics = 0;
-  h1= title
-  p Welcome to #{title}
-  .clicker
-  p 
-    | Nombre de clics : 
-    span.counter
-  h3 Améliorations
-  button(disabled)#upgrade1.upgrades Amélioration 1
-  button(disabled)#upgrade2.upgrades Amélioration 2
+  .row
+    header.col-md-12
+      h1= title
+      p Développez votre confrérie
+  .row.main
+    .col-md-9.clickersect
+      p 
+        | Nombre de clics : 
+        span.counter
+      p
+        | Par seconde :
+        span.persecond
+      .clicker
+    .col-md-3.upgrasect
+      h3 Améliorations
+      button(disabled)#upgrade1.upgrades 
+        p.upgradename 
+          | Amélioration 1
+          br
+          span#price1
+      button(disabled)#upgrade2.upgrades 
+        p 
+          | Amélioration 2
+          br
+          span#price2
   
 
   

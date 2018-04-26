@@ -3,7 +3,7 @@ var router = express.Router();
 var clic = 0;
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Clicker' });
+  res.render('index', { title: 'AC Clicker' });
 });
 
 
