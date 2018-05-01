@@ -83,3 +83,8 @@ socket.on('Quantity', (data) => {
     $('#quantity2').text(data[2]);
     $('#quantity3').text(data[3]);
 });
+
+/*Afficher le nombre de clics par seconde*/
+socket.on('PerSecond', (data) => {
+    $('#persecond').text(data);
+});

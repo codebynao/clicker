@@ -35,11 +35,16 @@ header p {
 .clickersect {
   margin-bottom: 2vh;
 }
-.totalcounter, .upgrasect h3{
+.totalcounter, .upgrasect h3 {
   text-transform: uppercase;
   letter-spacing: 0.5vw;
   font-size: 1.5em;
   margin-bottom: 2vh;
+}
+.persecond {
+  letter-spacing: 0.1vw;
+  font-size: 1em;
+  font-style: italic;
 }
 .clicker {
   margin: auto;

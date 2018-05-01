@@ -3,8 +3,12 @@ module.exports = (io) => {
     var upgrades = [0, 0, 0, 0];
     var pricesInit = [15, 200, 1200, 5400];
     var prices = [15, 200, 1200, 5400];
+    var persecond = 0;
 
     io.on('connection', (socket) => {
+        socket.emit('Quantity', upgrades);
+        socket.emit('PerSecond', persecond);
+
         /*Actualiser toutes les secondes le score et les prix après les améliorations et envoyer les données */
         setInterval(() => {
             counter += 1*upgrades[0] + 10*upgrades[1] + 50*upgrades[2] + 100*upgrades[3];
@@ -18,7 +22,7 @@ module.exports = (io) => {
             socket.emit('Click', counter);
         });
 
-        socket.emit('Quantity', upgrades);
+        
 
         /*Ecoute des améliorations*/
         socket.on('Upgrade', (upgrade) => {
@@ -30,10 +34,12 @@ module.exports = (io) => {
                     prices[i] += pricesInit[i]*upgrades[i];
                 }
             }
+            persecond = 1*upgrades[0] + 10*upgrades[1] + 50*upgrades[2] + 100*upgrades[3];
             /*Envoyer le nouveau score, les nouveaux prix et le nombre de clics par seconde après améliorations */
             socket.emit('Upgrade', counter);  
             socket.emit('Prices', prices);
             socket.emit('Quantity', upgrades);
+            socket.emit('PerSecond', persecond);
         });
     });
 };
