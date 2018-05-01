@@ -3,29 +3,53 @@ extends layout
 block content
   .row
     header.col-md-12
-      h1= title
-      p Développez votre confrérie
-  .row.main
-    .col-md-9.clickersect
+      img(src="images/assassins_creed_title_logo.png", alt="")
       p 
-        | Nombre de clics : 
+        i Faites grandir votre confrérie
+  .row.main
+    .col-md-7.clickersect
+      h3.totalcounter 
         span.counter
-      p
-        | Par seconde :
-        span.persecond
+        |  assassins
       .clicker
-    .col-md-3.upgrasect
+    .col-md-5.upgrasect
       h3 Améliorations
-      button(disabled)#upgrade1.upgrades 
-        p.upgradename 
-          | Amélioration 1
+      button(disabled)#upgrade0.upgrades.row
+        .col-md-6
+          | Botte de foin
           br
-          span#price1
-      button(disabled)#upgrade2.upgrades 
-        p 
-          | Amélioration 2
+          .prices
+            img(src="images/assassins_creed_logo.png", alt="")
+            span#price0
+        .col-md-6.quantities
+          span#quantity0 
+      button(disabled)#upgrade1.upgrades.row
+        .col-md-6
+          | Bombe fumigène
           br
-          span#price2
+          .prices
+            img(src="images/assassins_creed_logo.png", alt="")
+            span#price1
+        .col-md-6.quantities
+          span#quantity1
+      button(disabled)#upgrade2.upgrades.row
+        .col-md-6
+          | Senu
+          br
+          .prices
+            img(src="images/assassins_creed_logo.png", alt="")
+            span#price2
+        .col-md-6.quantities
+          span#quantity2
+      button(disabled)#upgrade3.upgrades.row
+        .col-md-6
+          | Lame Secrète
+          br
+          .prices
+            img(src="images/assassins_creed_logo.png", alt="")
+            span#price3
+        .col-md-6.quantities
+          span#quantity3
   
 
   

@@ -1,14 +1,13 @@
 module.exports = (io) => {
     var counter = 0;
-    var persecond = 0;
-    var upgrade1 = 0;
-    var upgrade2 = 0;
-    var prices = [15, 100];
+    var upgrades = [0, 0, 0, 0];
+    var pricesInit = [15, 200, 1200, 5400];
+    var prices = [15, 200, 1200, 5400];
 
     io.on('connection', (socket) => {
         /*Actualiser toutes les secondes le score et les prix après les améliorations et envoyer les données */
         setInterval(() => {
-            counter += 1*upgrade1 + 10*upgrade2;
+            counter += 1*upgrades[0] + 10*upgrades[1] + 50*upgrades[2] + 100*upgrades[3];
             socket.emit('Click', counter);
             socket.emit('Prices', prices);
         }, 1000);
@@ -19,28 +18,22 @@ module.exports = (io) => {
             socket.emit('Click', counter);
         });
 
+        socket.emit('Quantity', upgrades);
+
         /*Ecoute des améliorations*/
         socket.on('Upgrade', (upgrade) => {
             /*Déduire le prix des améliorations du score en cas d'achat et augmenter le prix des améliorations*/
-            switch(upgrade){
-                case 1:
-                    counter -= prices[0];
-                    upgrade1 += 1;
-                    prices[0] += prices[0]*upgrade1;
-                    break;
-                case 2:
-                    counter -= prices[1];
-                    upgrade2 += 1;
-                    prices[1] += prices[1]*upgrade2;
-                    break;
+            for(var i = 0; i < upgrades.length; i++){
+                if(i == upgrade) {
+                    counter -= prices[i];
+                    upgrades[i] += 1;
+                    prices[i] += pricesInit[i]*upgrades[i];
+                }
             }
-
             /*Envoyer le nouveau score, les nouveaux prix et le nombre de clics par seconde après améliorations */
             socket.emit('Upgrade', counter);  
-            socket.emit('PerSecond', () => {
-                persecond = 1*upgrade1 + 10*upgrade2;
-            });
             socket.emit('Prices', prices);
+            socket.emit('Quantity', upgrades);
         });
     });
 };

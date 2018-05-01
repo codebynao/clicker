@@ -2,6 +2,9 @@ body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   background-color: #232323;
+  background: url('../images/bg3.jpg') no-repeat;
+  background-size: cover;
+  min-height: 100vh;
 }
 
 a {
@@ -9,17 +12,33 @@ a {
 }
 header {
   text-align: center;
-  background-color: #232323;
-  color: #999999;
+  color: #333333;
+  margin-bottom: 4vh;
+}
+
+header img {
+  width: 35vw;
+  height: auto;
+}
+header p {
+  margin-top: 2vh;
+  font-size: 1.2em;
+  letter-spacing: 0.3vw;
 }
 .main {
-  background-color: #999999;
+  background-color:rgba(8, 8, 11, 0.5);
   padding: 5vh 0;
 }
 .clickersect, .upgrasect {
   text-align: center;
 }
 .clickersect {
+  margin-bottom: 2vh;
+}
+.totalcounter, .upgrasect h3{
+  text-transform: uppercase;
+  letter-spacing: 0.5vw;
+  font-size: 1.5em;
   margin-bottom: 2vh;
 }
 .clicker {
@@ -34,25 +53,42 @@ header {
 }
 
 .upgrades:hover {
-  background-color: #cccccc;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .upgrades {
-  height: auto;
+  border: none;
+  min-height: 7vh;
   width: 100%;
   border-radius: none;
   background: none;
-  border: solid 1px black;
+  border-bottom: solid 1px black;
   color: black;
   padding-bottom: 0;
+  text-align: left;
 }
 
 .upgrades:disabled {
-  border: solid 1px grey;
+  border-bottom: solid 1px grey;
   color: grey;
   cursor: not-allowed;
 }
 
 .upgrades:hover:disabled {
-  background-color: #777777;
+  background-color: rgba(100, 100, 100, 0.5);;
+}
+
+.prices {
+  margin-top: 1vh;
+}
+
+.prices img {
+  width: 15px;
+  height: auto;
+  margin-right: 0.2vw;
+  margin-top: -1vh;
+}
+
+.quantities {
+  text-align: right;
 }
